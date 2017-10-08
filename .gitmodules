@@ -1,0 +1,8 @@
+[submodule "LinuxVMSetup"]
+	path = LinuxVMSetup
+	url = git@github.com:pedrumj2/LinuxVMSetup.git
+	branch = master
+[submodule "mysql_csv_import"]
+	path = mysql_csv_import
+	url = git@github.com:pedrumj2/mysql_csv_import.git
+	branch = master
