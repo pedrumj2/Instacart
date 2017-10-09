@@ -19,11 +19,11 @@ model=1
 
 for train_count in 1000 3000 
 do
-  for hidden_layers in 400  700 
+  for hidden_layers in 400 700 
   do
     for drop_out in 0.5
     do
-      python Main.py $pass $ip $db $hidden_layers $rnn_length $ratio $test_ratio $train_count $model > output/${train_count}_${hidden_layers}.txt 
+      python Main.py $pass $ip $db $hidden_layers $rnn_length $ratio $test_ratio $train_count $model > output/${train_count}_${hidden_layers}.txt &
     done
   done
 done
