@@ -7,7 +7,6 @@ from ResAux.Results import Results
 
 
 def run(rnnAux, rnn_length, count_train, hidden_layer):
-    print("inside model1")
     predictor_size = 33+User.max_user
     label_size = 49688
 
@@ -47,25 +46,19 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
 
     init = tf.global_variables_initializer()
     _cross_entropy_helper = CrossEntropy()
-    print("done building graph")
     with tf.Session() as sess:
-        print("entering session init")
+
         sess.run(init)
-        print("session init done")
         flag = True
         i = 0
 
         while i < count_train:
-            print("getting data")
             pred_out, lab_out, is_new = rnnAux.get_training()
-            print("got data")
             if is_new:
                 prev = np.zeros((hidden_layer, 1), np.float32)
-                print("entering run")
             output = sess.run([tf_train_steps, tf_cross_entropy, tf_prev, tf_res, tf_res_0], {tf_x: pred_out, tf_label: lab_out,
                                                                         tf_prev_holder: prev,
                                                                         tf_drop_out_prob: 0.5})
-            print("done run")
             prev= output[2]
             _cross_entropy_helper.add_value(output[1])
             _cross_entropy_helper.print_res()
