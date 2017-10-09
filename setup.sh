@@ -9,15 +9,26 @@ fi
 
 
 
-user=$(logname)
-sudo -u $user git submodule update --init --recursive
+
 (cd LinuxVMSetup
   chmod +x deep_learning_setup.sh
   ./deep_learning_setup.sh
 )
 
+user=$(logname)
 
 (sudo -v -u $user 
+  git submodule update --init --recursive
+  (cd LinuxVMSetup
+    git checkout master
+    git pull
+    
+  )
+  (cd mysql_csv_import
+    git checkout master
+    git pull
+  )
+  
   rm -rf downloads
   mkdir downloads
   (cd mysql_csv_import
