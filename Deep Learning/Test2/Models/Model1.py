@@ -54,7 +54,9 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
         i = 0
 
         while i < count_train:
+            print("getting data")
             pred_out, lab_out, is_new = rnnAux.get_training()
+            print("got data")
             if is_new:
                 prev = np.zeros((hidden_layer, 1), np.float32)
                 print("entering run")
