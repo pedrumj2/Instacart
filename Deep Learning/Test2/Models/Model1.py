@@ -49,7 +49,9 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
     _cross_entropy_helper = CrossEntropy()
     print("done building graph")
     with tf.Session() as sess:
+        print("entering session init")
         sess.run(init)
+        print("session init done")
         flag = True
         i = 0
 
