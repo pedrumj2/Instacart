@@ -1,12 +1,20 @@
 #!/bin/bash
 
 
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+
+
 user=$(logname)
-#sudo -u $user git submodule update --init --recursive
-#(cd LinuxVMSetup
-#  chmod +x deep_learning_setup.sh
-#  ./deep_learning_setup.sh
-#)
+sudo -u $user git submodule update --init --recursive
+(cd LinuxVMSetup
+  chmod +x deep_learning_setup.sh
+  ./deep_learning_setup.sh
+)
 
 
 (sudo -v -u $user 
