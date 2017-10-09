@@ -15,6 +15,7 @@ rnnAux = RnnAux(dataSet, rnn_length)
 count_train = int(sys.argv[8])
 model_no = int(sys.argv[9])
 
+print("inside main")
 if model_no == 1:
     Model1.run(rnnAux, rnn_length, count_train, hidden_layer)
 

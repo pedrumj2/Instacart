@@ -7,6 +7,7 @@ from ResAux.Results import Results
 
 
 def run(rnnAux, rnn_length, count_train, hidden_layer):
+    print("inside model1")
     predictor_size = 33+User.max_user
     label_size = 49688
 
