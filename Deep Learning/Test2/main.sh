@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-git pull origin temp
+git pull origin master
 
 rm -rf output
 mkdir output
@@ -23,7 +23,7 @@ do
   do
     for drop_out in 0.5
     do
-      python Main.py $pass $ip $db $hidden_layers $rnn_length $ratio $test_ratio $train_count $model #> output/${train_count}_${hidden_layers}.txt 
+      python Main.py $pass $ip $db $hidden_layers $rnn_length $ratio $test_ratio $train_count $model > output/${train_count}_${hidden_layers}.txt 
     done
   done
 done
