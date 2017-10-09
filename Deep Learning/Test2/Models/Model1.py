@@ -57,9 +57,11 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
             pred_out, lab_out, is_new = rnnAux.get_training()
             if is_new:
                 prev = np.zeros((hidden_layer, 1), np.float32)
+                print("entering run")
             output = sess.run([tf_train_steps, tf_cross_entropy, tf_prev, tf_res, tf_res_0], {tf_x: pred_out, tf_label: lab_out,
                                                                         tf_prev_holder: prev,
                                                                         tf_drop_out_prob: 0.5})
+            print("done run")
             prev= output[2]
             _cross_entropy_helper.add_value(output[1])
             _cross_entropy_helper.print_res()
