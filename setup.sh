@@ -10,6 +10,7 @@ fi
 
 user=$(logname)
 ( 
+echo $(logname)
   sudo -su $user
   echo $(logname)
   git submodule update --init --recursive
