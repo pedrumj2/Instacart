@@ -10,7 +10,8 @@ fi
 
 user=$(logname)
 ( 
-  sudo -u $user git submodule update --init --recursive
+  sudo -su $user
+  git submodule update --init --recursive
 )
 #(cd LinuxVMSetup
 #  chmod +x deep_learning_setup.sh
