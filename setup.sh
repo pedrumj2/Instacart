@@ -11,6 +11,7 @@ fi
 user=$(logname)
 ( 
   sudo -su $user
+  echo $(logname)
   git submodule update --init --recursive
 )
 #(cd LinuxVMSetup
