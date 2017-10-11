@@ -4,7 +4,7 @@ import numpy as np
 
 # This class gets data for a single user
 class User(object):
-    max_user = 206209
+    max_user = 20000
     pred_size = 32
     label_size = 49688
 
