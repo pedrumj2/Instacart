@@ -35,8 +35,6 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
         tf_res_0 = tf.matmul(tf.nn.dropout(tf_U[:, :, 0], tf_drop_out_prob), tf_prev) + tf_bu[:, :, 0]
         tf_res_1 = tf.matmul(tf.nn.dropout(tf_U[:, :, 1], tf_drop_out_prob), tf_prev) + tf_bu[:, :, 1]
         tf_res = tf.nn.softmax(tf.concat((tf_res_0, tf_res_1), 1), 1)
-        # tf_cross_entropy = -tf.reduce_mean(tf_res[:, 0] * tf.log(tf_label[i, :, 0]) +
-         #                                                tf_res[:, 1] * tf.log(tf_label[i, :, 1])*4968, reduction_indices=[0])
         tf_cross_entropy = -tf.reduce_mean(tf.reduce_sum(tf_label[i] * tf.log(tf.clip_by_value(tf_res, 0.00001, 1)), reduction_indices=[1]))
         tf_train_step = tf.train.AdamOptimizer().minimize(tf_cross_entropy)
         tf_train_steps.append(tf_train_step)
