@@ -16,10 +16,10 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
     tf_prev_holder = tf.placeholder(tf.float32, [hidden_layer, 1])
     tf_prev = tf_prev_holder
 
-    tf_Wt = tf.Variable(tf.random_normal([hidden_layer, predictor_size+label_size+hidden_layer], stddev=0.35))
-    tf_Wi = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35))
-    tf_Wc = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35))
-    tf_Wo = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35))
+    tf_Wt = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35,seed=1))
+    tf_Wi = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35,seed=1))
+    tf_Wc = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35,seed=1))
+    tf_Wo = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35,seed=1))
     tf_bt = tf.Variable(tf.zeros([hidden_layer, 1]))
     tf_bi = tf.Variable(tf.zeros([hidden_layer, 1]))
     tf_bc = tf.Variable(tf.zeros([hidden_layer, 1]))
@@ -42,8 +42,8 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
         tf_ot = tf.nn.sigmoid(tf.matmul(tf_Wo, tf_prev_x_label) + tf_bo)
         tf_prev = tf.multiply(tf_ot, tf.nn.tanh(tf_ct_1))
 
-        tf_res_0 = tf.matmul(tf.nn.dropout(tf_U[:, :, 0], tf_drop_out_prob), tf_prev) + tf_bu[:, :, 0]
-        tf_res_1 = tf.matmul(tf.nn.dropout(tf_U[:, :, 1], tf_drop_out_prob), tf_prev) + tf_bu[:, :, 1]
+        tf_res_0 = tf.matmul(tf.nn.dropout(tf_U[:, :, 0], tf_drop_out_prob, seed=1), tf_prev) + tf_bu[:, :, 0]
+        tf_res_1 = tf.matmul(tf.nn.dropout(tf_U[:, :, 1], tf_drop_out_prob, seed=1), tf_prev) + tf_bu[:, :, 1]
         tf_res = tf.nn.softmax(tf.concat((tf_res_0, tf_res_1), 1), 1)
         tf_cross_entropy = -tf.reduce_mean(
               4968*tf_label[i, :, 0] * tf.log(tf.clip_by_value(tf_res[:, 0], 0.00001, 1)) +
