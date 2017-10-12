@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-git pull origin temp
+git pull origin master
 
 rm -rf output
 mkdir output
@@ -17,9 +17,9 @@ train_count=10000
 model=1
 
 
-for train_count in 1000 2000 3000 
+for train_count in 1000  3000 
 do
-  for hidden_layers in 400 500 600 700 
+  for hidden_layers in 400 700 
   do
     for drop_out in 0.5
     do
