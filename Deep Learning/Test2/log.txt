@@ -1,102 +1,23 @@
 From github.com:pedrumj2/Instacart
  * branch            master     -> FETCH_HEAD
 Already up-to-date.
-2017-10-09 15:48:54.958752: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:54.958811: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:54.958819: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:54.958824: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:54.958830: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.086531: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.086603: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.086615: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.086624: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.086633: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.288766: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.288830: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.288837: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.288843: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.288848: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.377050: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.377135: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.377146: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.377174: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
-2017-10-09 15:48:55.377183: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "Main.py", line 20, in <module>
-  File "Main.py", line 20, in <module>
-        Model1.run(rnnAux, rnn_length, count_train, hidden_layer)
-Model1.run(rnnAux, rnn_length, count_train, hidden_layer)
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/Models/Model1.py", line 60, in run
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/Models/Model1.py", line 60, in run
-        pred_out, lab_out, is_new = rnnAux.get_training()
-pred_out, lab_out, is_new = rnnAux.get_training()
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/RnnAux.py", line 29, in get_training
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/RnnAux.py", line 29, in get_training
-        self.predictors, self.labels = self.dataSet.get_training()
-self.predictors, self.labels = self.dataSet.get_training()
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/DataSets.py", line 18, in get_training
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/DataSets.py", line 18, in get_training
-        predictors, labels = self.user.get_data(self.users[self.training_index, 0])
-predictors, labels = self.user.get_data(self.users[self.training_index, 0])
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/User.py", line 23, in get_data
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/User.py", line 23, in get_data
-        self.cursor.execute(query)
-self.cursor.execute(query)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 166, in execute
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 166, in execute
-        result = self._query(query)
-result = self._query(query)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 322, in _query
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 322, in _query
-    conn.query(q)
-      File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 856, in query
-conn.query(q)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 856, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1057, in _read_query_result
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1057, in _read_query_result
-    result.read()
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1340, in read
-    result.read()
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1340, in read
-        first_packet = self.connection._read_packet()
-first_packet = self.connection._read_packet()
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 987, in _read_packet
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 987, in _read_packet
-        packet_header = self._read_bytes(4)
-packet_header = self._read_bytes(4)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1033, in _read_bytes
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1033, in _read_bytes
-    CR.CR_SERVER_LOST, "Lost connection to MySQL server during query")
-    CR.CR_SERVER_LOST, "Lost connection to MySQL server during query")
-pymysql.errpymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query')
-.OperationalError: (2013, 'Lost connection to MySQL server during query')
-./main.sh: line 33: 20521 Killed                  python Main.py $pass $ip $db $hidden_layers $rnn_length $ratio $test_ratio $train_count $model > output/${train_count}_${hidden_layers}.txt
-Traceback (most recent call last):
-  File "Main.py", line 20, in <module>
-    Model1.run(rnnAux, rnn_length, count_train, hidden_layer)
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/Models/Model1.py", line 60, in run
-    pred_out, lab_out, is_new = rnnAux.get_training()
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/RnnAux.py", line 29, in get_training
-    self.predictors, self.labels = self.dataSet.get_training()
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/DataSets.py", line 18, in get_training
-    predictors, labels = self.user.get_data(self.users[self.training_index, 0])
-  File "/home/pedrumj/Instacart/Deep Learning/Test2/DataMod/User.py", line 23, in get_data
-    self.cursor.execute(query)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 166, in execute
-    result = self._query(query)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 322, in _query
-    conn.query(q)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 856, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1057, in _read_query_result
-    result.read()
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1340, in read
-    first_packet = self.connection._read_packet()
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 987, in _read_packet
-    packet_header = self._read_bytes(4)
-  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1033, in _read_bytes
-    CR.CR_SERVER_LOST, "Lost connection to MySQL server during query")
-pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query')
+2017-10-11 21:28:07.733424: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 21:28:07.733484: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 21:28:07.733493: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 21:28:07.733500: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 21:28:07.733506: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 23:53:19.406953: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 23:53:19.429446: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 23:53:19.429473: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 23:53:19.429481: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-11 23:53:19.429488: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 02:37:44.300969: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 02:37:44.316369: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 02:37:44.316449: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 02:37:44.316459: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 02:37:44.316467: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 05:51:41.147034: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 05:51:41.147098: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 05:51:41.147107: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 05:51:41.147132: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-12 05:51:41.147140: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.

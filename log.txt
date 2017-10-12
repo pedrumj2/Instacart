@@ -1,0 +1,62 @@
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+Already up-to-date.
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+Already up-to-date.
+Downloading data.zip -> data.zip
+                                                  882.0 B/207.3 MB                                                  78.0 MB/207.3 MB, Rate: 22.7 MB/s                                                  198.7 MB/207.3 MB, Rate: 22.7 MB/s                                                  207.3 MB/207.3 MB, Rate: 22.7 MB/s                                                  Downloaded 0Bwn99sXw-O9PRS1nbk5tVHVjMXc at 46.0 MB/s, total 207.3 MB
+Archive:  data.zip
+  inflating: aisles.csv              
+  inflating: departments.csv         
+  inflating: order_products__prior.csv  
+  inflating: order_products__train.csv  
+  inflating: orders.csv              
+  inflating: products.csv            
+  inflating: sample_submission.csv   
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: mysql: [Warning] Using a password on the command line interface can be insecure.[Warning] Using a password on the command line interface can be insecure.
+
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysqlimport: [Warning] Using a password on the command line interface can be insecure.
+mysqlimport: [Warning] Using a password on the command line interface can be insecure.
+mysqlimport: [Warning] Using a password on the command line interface can be insecure.
+mysqlimport: [Warning] Using a password on the command line interface can be insecure.
+mysqlimport: [Warning] Using a password on the command line interface can be insecure.
+mysqlimport: [Warning] Using a password on the command line interface can be insecure.
+mysqlimport: [Warning] Using a password on the command line interface can be insecure.
+insta.aisles: Records: 134  Deleted: 0  Skipped: 0  Warnings: 28
+insta.departments: Records: 21  Deleted: 0  Skipped: 0  Warnings: 0
+insta.products: Records: 49688  Deleted: 0  Skipped: 0  Warnings: 38557
+insta.sample_submission: Records: 75000  Deleted: 0  Skipped: 0  Warnings: 0
+insta.order_products__train: Records: 1384617  Deleted: 0  Skipped: 0  Warnings: 0
+insta.orders: Records: 3421083  Deleted: 0  Skipped: 0  Warnings: 0
+insta.order_products__prior: Records: 32434489  Deleted: 0  Skipped: 0  Warnings: 0
+finished inserting tables
+mysql: [Warning] Using a password on the command line interface can be insecure.
+set days_since_prior_order to zero where null
+mysql: [Warning] Using a password on the command line interface can be insecure.
+changed order_products_prior table column types
+starting parallel process to change order_products__train table column types
+starting parallel process to change orders table column types
+starting parallel process to change products table column types
+mysql: mysql: mysql: [Warning] Using a password on the command line interface can be insecure.[Warning] Using a password on the command line interface can be insecure.[Warning] Using a password on the command line interface can be insecure.
+
+
+parallel processed joined
+mysql: [Warning] Using a password on the command line interface can be insecure.
+combined table created
+mysql: [Warning] Using a password on the command line interface can be insecure.
+train values inserted into combined table
+mysql: [Warning] Using a password on the command line interface can be insecure.
+index added to combined
+mysql: [Warning] Using a password on the command line interface can be insecure.
+updated null department ids
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
