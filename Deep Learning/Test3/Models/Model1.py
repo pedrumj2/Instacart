@@ -26,8 +26,8 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
     tf_bo = tf.Variable(tf.zeros([hidden_layer, 1]))
     tf_ct_1 = tf.Variable(tf.zeros([hidden_layer, 1]))
 
-    tf_U = tf.Variable(tf.random_normal([label_size, hidden_layer, 2], stddev=0.35))
-    tf_bu = tf.Variable(tf.random_normal([label_size, 1, 2], stddev=0.35))
+    tf_U = tf.Variable(tf.random_normal([label_size, hidden_layer, 2], stddev=0.35, seed =1))
+    tf_bu = tf.Variable(tf.random_normal([label_size, 1, 2], stddev=0.35, seed =1))
 
     tf_train_steps = []
     tf_cross_entropy = None
