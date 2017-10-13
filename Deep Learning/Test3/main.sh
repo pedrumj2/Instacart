@@ -17,7 +17,7 @@ train_count=10000
 model=1
 
 
-for train_count in 1000 3000 
+for train_count in 1000 10000
 do
   for hidden_layers in 400 700 
   do
