@@ -5,12 +5,13 @@ from DataMod.User import User
 # this class is responsible for splitting the data into training and validation.
 class DataSets(object):
     def __init__(self,  ratio, ratio_validation, user):
+        np.random.seed(0)
         self.user = user
         self.users = DataSets.__get_users(ratio)
         self.is_validation = DataSets.__get_validations(self.users, ratio_validation)
         self.training_index = 0
         self.validation_index = 0
-        np.random.seed(0)
+
 
     # returns all data from the next user. It strips out the validation records.
     def get_training(self):
