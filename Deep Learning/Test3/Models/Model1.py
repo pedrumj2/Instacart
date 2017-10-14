@@ -33,7 +33,7 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
     tf_cross_entropy = None
     # Initializing the variables
 
-    for i in range(rnn_length):
+    for i in range(rnn_length-1):
         tf_prev_x_label = tf.concat([tf_prev, tf_x[i], tf.reshape(tf_label[i, :, 0], (label_size, 1))], 0)
         tf_ft =  tf.nn.sigmoid(tf.matmul(tf_Wt, tf_prev_x_label) + tf_bt)
         tf_it = tf.nn.sigmoid(tf.matmul(tf_Wi, tf_prev_x_label) + tf_bi)
