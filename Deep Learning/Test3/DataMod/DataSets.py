@@ -39,9 +39,9 @@ class DataSets(object):
                     return None, None
 
     @staticmethod
-    def __get_users(ratio):
+    def __get_users(used_count):
         count_users = User.max_user
-        count_users_split = np.floor(count_users * ratio).astype(int)
+        count_users_split = used_count
         users = np.array(range(1, count_users +1)).reshape((count_users, 1))
         users_cut = DataSets.__perm_list(count_users_split, users)
         return users_cut
