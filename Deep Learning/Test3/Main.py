@@ -6,7 +6,7 @@ from DataMod.User import User
 from Models import Model1
 
 users = User(sys.argv[1], sys.argv[2], sys.argv[3], "root")
-dataSet = DataSets(float(sys.argv[6]), float(sys.argv[7]), users)
+dataSet = DataSets(int(sys.argv[6]), float(sys.argv[7]), users)
 hidden_layer = int(sys.argv[4])
 rnn_length = int(sys.argv[5])
 rnnAux = RnnAux(dataSet, rnn_length)
