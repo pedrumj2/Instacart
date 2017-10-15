@@ -23,7 +23,7 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
     tf_train_steps = []
     tf_cross_entropy = None
     # Initializing the variables
-    _rnn = LSTM(2, hidden_layer, predictor_size+label_size,  1)
+    _rnn = LSTM(1, hidden_layer, predictor_size+label_size,  1)
     for i in range(rnn_length-1):
         tf_prev_x_label = tf.concat([tf_x[i], tf.reshape(tf_label[i, :, 0], (label_size, 1))], 0)
         tf_prev, interm_res = _rnn.apply(tf_prev_x_label, tf_prev)
