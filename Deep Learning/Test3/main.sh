@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+
+
+find . -type f -name '*.pyc' -delete
 git pull origin master
 git submodule update --init --recursive
 (cd libs/TF_Libs
@@ -23,7 +26,7 @@ train_count=10000
 model=1
 
 
-for train_count in 200 
+for train_count in 400 
 do
   for hidden_layers in 400  
   do
