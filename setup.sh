@@ -23,6 +23,6 @@ sudo -u $user  git submodule update --init --recursive
 
 (cd SetupScripts
   #./setupEnv.sh
-  ./minimizeDataSet.sh 2
+  ./minimizeDataSet.sh 1000
 )
 
