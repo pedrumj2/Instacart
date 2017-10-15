@@ -26,11 +26,11 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
     _rnn = LSTM(1, hidden_layer, predictor_size+label_size,  1)
     for i in range(rnn_length-1):
         tf_prev_x_label = tf.concat([tf_x[i], tf.reshape(tf_label[i, :, 0], (label_size, 1))], 0)
-        tf_prev = _rnn.apply(tf_prev_x_label, tf_prev)
+        tf_prev, interm_res = _rnn.apply(tf_prev_x_label, tf_prev)
 
         #tf_prev = tf.nn.sigmoid(tf.matmul(tf_Wt, tf_prev_x_label) + tf_bt)
-        tf_res_0 = tf.matmul(tf.nn.dropout(tf_U[:, :, 0], tf_drop_out_prob, seed=1), tf_prev) + tf_bu[:, :, 0]
-        tf_res_1 = tf.matmul(tf.nn.dropout(tf_U[:, :, 1], tf_drop_out_prob, seed=1), tf_prev) + tf_bu[:, :, 1]
+        tf_res_0 = tf.matmul(tf.nn.dropout(tf_U[:, :, 0], tf_drop_out_prob, seed=1), interm_res) + tf_bu[:, :, 0]
+        tf_res_1 = tf.matmul(tf.nn.dropout(tf_U[:, :, 1], tf_drop_out_prob, seed=1), interm_res) + tf_bu[:, :, 1]
         tf_res = tf.nn.softmax(tf.concat((tf_res_0, tf_res_1), 1), 1)
         tf_cross_entropy = -tf.reduce_mean(
               User.ratio_purchase*tf_label[i+1, :, 0] * tf.log(tf.clip_by_value(tf_res[:, 0], 0.00001, 1)) +
