@@ -50,7 +50,6 @@ class RnnAux(object):
         self.__check_end()
         return pred_out, lab_out, is_new
 
-
     def get_test(self):
         is_new = False
         is_end_all = False

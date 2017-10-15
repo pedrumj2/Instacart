@@ -8,7 +8,7 @@ from ResAux.Results import Results
 
 def run(rnnAux, rnn_length, count_train, hidden_layer):
     predictor_size = 33+User.max_user
-    label_size = 49688
+    label_size = User.label_size
 
     tf_x = tf.placeholder(tf.float32, [rnn_length, predictor_size, 1])
     tf_drop_out_prob = tf.placeholder(tf.float32)
@@ -41,14 +41,14 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
         tf_ct_1 = tf.multiply(tf_ft,tf_ct_1) + tf.multiply(tf_it,tf_chat_t)
         tf_ot = tf.nn.sigmoid(tf.matmul(tf_Wo, tf_prev_x_label) + tf_bo)
         tf_prev = tf.multiply(tf_ot, tf.nn.tanh(tf_ct_1))
-
+        #tf_prev = tf.nn.sigmoid(tf.matmul(tf_Wt, tf_prev_x_label) + tf_bt)
         tf_res_0 = tf.matmul(tf.nn.dropout(tf_U[:, :, 0], tf_drop_out_prob, seed=1), tf_prev) + tf_bu[:, :, 0]
         tf_res_1 = tf.matmul(tf.nn.dropout(tf_U[:, :, 1], tf_drop_out_prob, seed=1), tf_prev) + tf_bu[:, :, 1]
         tf_res = tf.nn.softmax(tf.concat((tf_res_0, tf_res_1), 1), 1)
         tf_cross_entropy = -tf.reduce_mean(
-              4968*tf_label[i, :, 0] * tf.log(tf.clip_by_value(tf_res[:, 0], 0.00001, 1)) +
-                          tf_label[i, :, 1] * tf.log(tf.clip_by_value(tf_res[:, 1], 0.00001, 1)))
-        tf_train_step = tf.train.AdamOptimizer().minimize(tf_cross_entropy)
+              User.ratio_purchase*tf_label[i+1, :, 0] * tf.log(tf.clip_by_value(tf_res[:, 0], 0.00001, 1)) +
+                          tf_label[i+1, :, 1] * tf.log(tf.clip_by_value(tf_res[:, 1], 0.00001, 1)))
+        tf_train_step = tf.train.GradientDescentOptimizer(1).minimize(tf_cross_entropy)
         tf_train_steps.append(tf_train_step)
 
     init = tf.global_variables_initializer()
@@ -70,6 +70,8 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
             _cross_entropy_helper.add_value(output[1])
             _cross_entropy_helper.print_res()
             i += 1
+            if i == 600:
+                d =4;
 
         i = 0
         results = Results()
@@ -89,6 +91,21 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
                     results.add_results(lab_out[rnn_length-1, :, 0], output[2][:, 0])
             else:
                 flag = False
+
+            # pred_out, lab_out, is_new = rnnAux.get_training()
+            # if i < 2:
+            #     i += 1
+            #     if is_new:
+            #         prev = np.zeros((hidden_layer, 1), np.float32)
+            #     output = sess.run([tf_cross_entropy, tf_prev, tf_res, tf_res_0],
+            #                       {tf_x: pred_out, tf_label: lab_out,
+            #                        tf_prev_holder: prev,
+            #                        tf_drop_out_prob: 0.5})
+            #     prev = output[1]
+            #     print(output[0])
+            #     results.add_results(lab_out[rnn_length - 1, :, 0], output[2][:, 0])
+            # else:
+            #     flag = False
         results.print_output()
         d =     3
     x =3
