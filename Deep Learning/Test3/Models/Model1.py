@@ -56,7 +56,7 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
                                                                         tf_drop_out_prob: 0.5})
             prev= output[2]
             _cross_entropy_helper.add_value(output[1])
-            _cross_entropy_helper.print_res()
+            #_cross_entropy_helper.print_res()
             i += 1
             if i == 600:
                 d =4;
@@ -74,7 +74,7 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
                                    tf_prev_holder: prev,
                                   tf_drop_out_prob: 1.0})
                 prev = output[1]
-                print(output[0])
+                #print(output[0])
                 if is_end_user:
                     results.add_results(lab_out[rnn_length-1, :, 0], output[2][:, 0])
             else:
