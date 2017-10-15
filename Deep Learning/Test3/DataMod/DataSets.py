@@ -41,9 +41,10 @@ class DataSets(object):
     @staticmethod
     def __get_users(used_count):
         count_users = User.max_user
-        count_users_split = used_count
-        users = np.array(range(1, count_users +1)).reshape((count_users, 1))
-        users_cut = DataSets.__perm_list(count_users_split, users)
+        # count_users_split = used_count
+        # users = np.array(range(1, count_users +1)).reshape((count_users, 1))
+        # users_cut = DataSets.__perm_list(count_users_split, users)
+        users_cut = np.array(range(1, count_users + 1)).reshape((count_users, 1))
         return users_cut
 
     @staticmethod
