@@ -35,7 +35,8 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
         tf_cross_entropy = -tf.reduce_mean(
               User.ratio_purchase*tf_label[i+1, :, 0] * tf.log(tf.clip_by_value(tf_res[:, 0], 0.00001, 1)) +
                           tf_label[i+1, :, 1] * tf.log(tf.clip_by_value(tf_res[:, 1], 0.00001, 1)))
-        tf_train_step = tf.train.GradientDescentOptimizer(1).minimize(tf_cross_entropy)
+        #tf_train_step = tf.train.GradientDescentOptimizer(1).minimize(tf_cross_entropy)
+        tf_train_step = tf.train.AdamOptimizer().minimize(tf_cross_entropy)
         tf_train_steps.append(tf_train_step)
 
     init = tf.global_variables_initializer()
