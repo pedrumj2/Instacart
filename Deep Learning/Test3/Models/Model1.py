@@ -1,9 +1,10 @@
 import numpy as np
 import tensorflow as tf
-
+from tensorflow.contrib import rnn
 from DataMod.User import User
 from ResAux.CrossEntropy import CrossEntropy
 from ResAux.Results import Results
+from libs.TF_Libs.LSTM import LSTM
 
 
 def run(rnnAux, rnn_length, count_train, hidden_layer):
@@ -16,31 +17,17 @@ def run(rnnAux, rnn_length, count_train, hidden_layer):
     tf_prev_holder = tf.placeholder(tf.float32, [hidden_layer, 1])
     tf_prev = tf_prev_holder
 
-    tf_Wt = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35,seed=1))
-    tf_Wi = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35,seed=1))
-    tf_Wc = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35,seed=1))
-    tf_Wo = tf.Variable(tf.random_normal([hidden_layer, predictor_size + label_size + hidden_layer], stddev=0.35,seed=1))
-    tf_bt = tf.Variable(tf.zeros([hidden_layer, 1]))
-    tf_bi = tf.Variable(tf.zeros([hidden_layer, 1]))
-    tf_bc = tf.Variable(tf.zeros([hidden_layer, 1]))
-    tf_bo = tf.Variable(tf.zeros([hidden_layer, 1]))
-    tf_ct_1 = tf.Variable(tf.zeros([hidden_layer, 1]))
-
     tf_U = tf.Variable(tf.random_normal([label_size, hidden_layer, 2], stddev=0.35, seed =1))
     tf_bu = tf.Variable(tf.random_normal([label_size, 1, 2], stddev=0.35, seed =1))
 
     tf_train_steps = []
     tf_cross_entropy = None
     # Initializing the variables
-
+    _rnn = LSTM(1, 1)
     for i in range(rnn_length-1):
-        tf_prev_x_label = tf.concat([tf_prev, tf_x[i], tf.reshape(tf_label[i, :, 0], (label_size, 1))], 0)
-        tf_ft =  tf.nn.sigmoid(tf.matmul(tf_Wt, tf_prev_x_label) + tf_bt)
-        tf_it = tf.nn.sigmoid(tf.matmul(tf_Wi, tf_prev_x_label) + tf_bi)
-        tf_chat_t = tf.nn.tanh(tf.matmul(tf_Wc, tf_prev_x_label) + tf_bc)
-        tf_ct_1 = tf.multiply(tf_ft,tf_ct_1) + tf.multiply(tf_it,tf_chat_t)
-        tf_ot = tf.nn.sigmoid(tf.matmul(tf_Wo, tf_prev_x_label) + tf_bo)
-        tf_prev = tf.multiply(tf_ot, tf.nn.tanh(tf_ct_1))
+        tf_prev_x_label = tf.concat([tf_x[i], tf.reshape(tf_label[i, :, 0], (label_size, 1))], 0)
+        tf_prev = _rnn.apply(tf_prev_x_label, tf_prev)
+
         #tf_prev = tf.nn.sigmoid(tf.matmul(tf_Wt, tf_prev_x_label) + tf_bt)
         tf_res_0 = tf.matmul(tf.nn.dropout(tf_U[:, :, 0], tf_drop_out_prob, seed=1), tf_prev) + tf_bu[:, :, 0]
         tf_res_1 = tf.matmul(tf.nn.dropout(tf_U[:, :, 1], tf_drop_out_prob, seed=1), tf_prev) + tf_bu[:, :, 1]
