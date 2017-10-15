@@ -2,6 +2,12 @@
 
 
 git pull origin master
+git submodule update --init --recursive
+(cd libs/TF_Libs
+  git checkout master
+  git pull origin master
+
+)
 
 rm -rf output
 mkdir output
@@ -17,7 +23,7 @@ train_count=10000
 model=1
 
 
-for train_count in 100 
+for train_count in 200 
 do
   for hidden_layers in 400  
   do

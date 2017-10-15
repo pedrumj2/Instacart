@@ -8,7 +8,6 @@ if [ "$EUID" -ne 0 ]
 fi
 user=$(logname)
 sudo -u $user  git submodule update --init --recursive
-git submodule update --init --recursive
 (cd LinuxVMSetup
   sudo -u $user git checkout master
   sudo -u $user git pull  
@@ -24,6 +23,6 @@ git submodule update --init --recursive
 
 (cd SetupScripts
   #./setupEnv.sh
-  ./miminizeDataSet.sh
+  ./minimizeDataSet.sh 2
 )
 
