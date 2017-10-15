@@ -38,13 +38,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model1.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Model1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/Model1.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
               <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LSTM.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/libs/TF_Libs/LSTM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,8 +94,8 @@
         <option value="$PROJECT_DIR$/DataMod/RnnAux.py" />
         <option value="$PROJECT_DIR$/DataMod/DataSets.py" />
         <option value="$PROJECT_DIR$/libs/TF_Libs/RNN.py" />
-        <option value="$PROJECT_DIR$/libs/TF_Libs/LSTM.py" />
         <option value="$PROJECT_DIR$/Models/Model1.py" />
+        <option value="$PROJECT_DIR$/libs/TF_Libs/LSTM.py" />
       </list>
     </option>
   </component>
@@ -761,16 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/TF_Libs/LSTM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -803,6 +805,16 @@
           <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/TF_Libs/LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
