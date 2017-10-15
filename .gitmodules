@@ -6,3 +6,6 @@
 	path = mysql_csv_import
 	url = git@github.com:pedrumj2/mysql_csv_import.git
 	branch = master
+[submodule "Deep Learning/Test3/libs/TF_Libs"]
+	path = Deep Learning/Test3/libs/TF_Libs
+	url = git@github.com:pedrumj2/TF_Libs.git
