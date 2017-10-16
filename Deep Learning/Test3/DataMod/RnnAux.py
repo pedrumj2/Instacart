@@ -35,6 +35,7 @@ class RnnAux(object):
         if extra == 0:
             pred_out = self.predictors[0:self.rnn_length]
             lab_out = self.labels[0:self.rnn_length]
+            # adds a 1 as the first index of the predictors to indicate that these are not padded rows
             pred_out = np.append(np.ones((pred_out.shape[0], 1, 1)), pred_out, 1)
             self.predictors = self.predictors[self.rnn_length:(self.predictors.shape[0])]
             # basically removing the intial part from self.labels that will be returned
@@ -42,6 +43,7 @@ class RnnAux(object):
         else:
             pred_out = self.predictors[0:extra]
             lab_out = self.labels[0:extra]
+            # adds a 1 as the first index of the predictors to indicate that these are not padded rows
             pred_out = np.append(np.ones((pred_out.shape[0],1 , 1)), pred_out,1)
             pred_out = RnnAux.__pad_data_pred(pred_out, self.rnn_length - extra)
             lab_out = RnnAux.__pad_data_lab(lab_out, self.rnn_length - extra)
